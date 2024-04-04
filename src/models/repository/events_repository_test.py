@@ -4,7 +4,6 @@ from .events_repository import EventsRepository
 
 db_connection_handler.connect_to_db()
 
-@pytest.mark.skip(reason="Novo registro em banco de dados")
 def test_insert_event():
     event = {
         "uuid": "meu-uuid",
@@ -17,6 +16,7 @@ def test_insert_event():
     response = events_repository.insert_event(event)
     print(response)
 
+@pytest.mark.skip(reason="Não buscar o evento")
 def test_get_event_by_id():
     event_id = "meu-uuid"
     events_repository = EventsRepository()
